@@ -88,7 +88,8 @@ jobs:
       - calc-version
     steps:
       - name: Version Output Check
-        run: echo "Calculated version: ${{ needs.calc-version.outputs.version }}"
+        run: |
+            echo "Calculated version: ${{ needs.calc-version.outputs.version }}"
 
       - name: Check out code
         uses: actions/checkout@v3
