@@ -1,13 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>latest</LangVersion>
+		<PackageReadmeFile>NuGet.md</PackageReadmeFile>
+		<Product>FluentResults ProtoBuf Library</Product>
+		<Description>FluentResults.ProtoBuf is a library that extends the popular [FluentResults] library and provides compatibility with the [protobuf-net] library for serialization and transport</Description>
+		<RepositoryUrl>https://github.com/vitorogen/FluentResults.ProtoBuf</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Authors>Vitor Oliveira Generoso</Authors>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="FluentResults" Version="3.15.2" />
 		<PackageReference Include="protobuf-net" Version="3.2.16" />
+		<None Include="docs\NuGet.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 </Project>
