@@ -70,13 +70,9 @@ jobs:
       - id: v
         run: |
           if [ "${{ github.ref }}" = 'refs/heads/main' ]; then
-            echo "version=${{ env.LIB_VERSION }}" >> $GITHUB_ENV
-            echo "version=${{ env.LIB_VERSION }}" >&2
-            echo "::set-output name=version::${{ env.LIB_VERSION }}"
+            echo "version=${LIB_VERSION}" >> $GITHUB_OUTPUT
           else
-            echo "version=${{ env.LIB_VERSION }}-develop.${{ github.run_number }}" >> $GITHUB_ENV
-            echo "version=${{ env.LIB_VERSION }}-develop.${{ github.run_number }}" >&2
-            echo "::set-output name=version::${{ env.LIB_VERSION }}-develop.${{ github.run_number }}"
+            echo "version=${LIB_VERSION}-develop.${{ github.run_number }}" >> $GITHUB_OUTPUT
           fi
 
   publish:
@@ -100,7 +96,8 @@ jobs:
           dotnet-version: '7.0.x'
 
       - name: Build and Publish FluentResults.ProtoBuf
-        uses: drusellers/publish-nuget@main
+        id: publish_nuget
+        uses: drusellers/publish-nuget@master
         with:
           project-file-path: src/FluentResults.ProtoBuf/FluentResults.ProtoBuf.csproj
           version: ${{ needs.calc-version.outputs.version }}
