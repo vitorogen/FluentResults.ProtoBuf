@@ -22,7 +22,7 @@ on:
 jobs:
   compile:
     name: Build
-    timeout-minutes: 2
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -44,7 +44,7 @@ jobs:
   unit-tests:
     name: Unit Tests
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 5
     steps:
       - name: Check out code
         uses: actions/checkout@v3
@@ -55,7 +55,7 @@ jobs:
           dotnet-version: '7.0.x'
 
       - name: Unit Tests
-        run: dotnet test -c Release -f net7.0 --logger:"console;verbosity=normal" --filter Category!=Flaky
+        run: dotnet test -c Release -f net7.0 --logger:"console;verbosity=normal"
         working-directory: tests/FluentResults.ProtoBuf.UnitTests
 
   calc-version:
