@@ -13,7 +13,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="FluentResults" Version="3.15.2" />
-		<PackageReference Include="protobuf-net" Version="3.2.16" />
+		<PackageReference Include="protobuf-net.Grpc" Version="1.1.1" />
 		<None Include="docs\NuGet.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
