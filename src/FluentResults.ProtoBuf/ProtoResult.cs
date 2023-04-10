@@ -44,7 +44,7 @@ public class ProtoResult<TValue> : IProtoResult
     {
         var protoResult = new ProtoResult<TValue>
         {
-            Value = result.Value
+            Value = result.IsSuccess ? result.Value : default
         };
 
         foreach (var reason in result.Reasons)

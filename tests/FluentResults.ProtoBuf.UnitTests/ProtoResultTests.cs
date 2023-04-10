@@ -309,4 +309,17 @@ public sealed class ProtoResultTests
         // Assert
         protoResult.Value.Should().Be(42);
     }
+
+    [Fact]
+    public void Given_FailedResult_When_ImplicityConvertToProtoResult_Then_ShouldConvertWithoutValue()
+    {
+        // Arrange
+        Result<Guid?> result = Result.Fail("Error!");
+
+        // Act
+        ProtoResult<Guid?> protoResult = result;
+
+        // Assert
+        protoResult.Value.Should().BeNull();
+    }
 }
